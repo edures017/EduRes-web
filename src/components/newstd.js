@@ -25,6 +25,7 @@ class NewStd extends Component {
 				console.log("Error fetching user data:", error);
 			});
 		secondaryApp.auth().signOut();
+		alert("Student has been added");
 	};
 
 	uploadData = () => {

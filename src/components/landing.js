@@ -6,10 +6,12 @@ import Home from "../components/home";
 class Landing extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			user: null,
 		};
+	}
+
+	componentDidMount() {
 		fire.auth().onAuthStateChanged((user) => {
 			if (user) {
 				this.setState({ user: user });
@@ -18,8 +20,6 @@ class Landing extends Component {
 			}
 		});
 	}
-
-	componentDidMount() {}
 
 	render() {
 		if (this.state.user === 0) {
