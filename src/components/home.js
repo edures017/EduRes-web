@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import fire from "../config/firebase";
 import NewStd from "../components/newstd";
 import Notify from "../components/notify";
+import Attendance from "../components/attendance";
 
 class Home extends Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ class Home extends Component {
 				<br />
 				<NewStd />
 				<Notify />
+				<Attendance />
 			</div>
 		);
 	}
