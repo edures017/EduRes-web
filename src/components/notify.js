@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-
+import fire from "../config/firebase";
 import axios from "axios";
 class Notify extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { tokens: [] };
 		this.sendmsg = this.sendmsg.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
+		this.getEmails = this.getEmails.bind(this);
 	}
 
 	handleInputChange(event) {
@@ -14,36 +15,36 @@ class Notify extends Component {
 			[event.target.name]: event.target.value,
 		});
 	}
+	getEmails = () => {
+		var emails = this.state.emails.trim().split(";");
+		// console.log(emails);
+		var result = [];
+		var ref = fire.database().ref("Users");
+		ref.once("value").then((snapshot) => {
+			emails.forEach((element) => {
+				var email = Object.values(snapshot.val()).filter(
+					(user) => user.email == element
+				);
+				if (email[0] != null) {
+					var toke = this.state.tokens;
+					result.push(email[0].token);
+					var registrationToken = [
+						// "dsShuJSPgNA:APA91bEGx4JBvksAkvO0MlPcXj7sYLycgDJXAZyEcb2MpYKXjjrCKl0WavndrCUGLNM-Kj5ySUzG6cGvbhk6umyUQ0nEwT7n8Jltb3fmBRdm7Awkhc-ZdQ-8xAcpIuFua0fwA9GKFV7A",
+						email[0].token,
+					];
+					axios.post("http://localhost:9000/notify", {
+						tokens: registrationToken,
+						title: this.state.title,
+						body: this.state.body,
+					});
+				}
+			});
+		});
+	};
 
 	sendmsg = (event) => {
 		event.preventDefault();
-		var registrationToken =
-			"fW-w-DpTXjQ:APA91bEQXO429KuR2WIjEH1ie-BkenFUyIpc-DuYSfiiOwzrFgS67NDsOCmjo2-4ZcuEESIUWnwfeihgqE2tkWdhF4zYDYwj2cjOP8nOfWN87P9btCqbHTJJaRJDQ8VZd3X6qIlzH-_j";
-		var in_body = this.state.body;
-		var in_title = this.state.title;
-		axios.post("http://localhost:9000/notify", {
-			msg: {
-				notification: {
-					title: in_title,
-					body: in_body,
-				},
-				android: {
-					ttl: 3600 * 1000,
-					notification: {
-						icon: "stock_ticker_update",
-						color: "#f45342",
-					},
-				},
-				apns: {
-					payload: {
-						aps: {
-							badge: 42,
-						},
-					},
-				},
-				token: registrationToken,
-			},
-		});
+		this.getEmails();
 		alert("Notification sent");
 	};
 
@@ -58,6 +59,8 @@ class Notify extends Component {
 					<label>Body of the Notification: </label>
 					<textarea name='body' onChange={this.handleInputChange} />
 					<br />
+					<label>List of student emails: </label>
+					<textarea name='emails' onChange={this.handleInputChange} />
 					<button type='submit'>Send</button>
 				</form>
 			</div>

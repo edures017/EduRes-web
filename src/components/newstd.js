@@ -31,6 +31,7 @@ class NewStd extends Component {
 	uploadData = () => {
 		var myref = fire.database().ref("Users/" + this.state.id);
 		var data = {
+			id: this.state.id,
 			name: this.state.name,
 			address: this.state.address,
 			email: this.state.email,
