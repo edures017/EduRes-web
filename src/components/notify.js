@@ -4,7 +4,7 @@ import axios from "axios";
 class Notify extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { tokens: [] };
+		this.state = {};
 		this.sendmsg = this.sendmsg.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.getEmails = this.getEmails.bind(this);
@@ -18,7 +18,7 @@ class Notify extends Component {
 	getEmails = () => {
 		var emails = this.state.emails.trim().split(";");
 		// console.log(emails);
-		var result = [];
+		var tokens = [];
 		var ref = fire.database().ref("Users");
 		ref.once("value").then((snapshot) => {
 			emails.forEach((element) => {
@@ -26,26 +26,41 @@ class Notify extends Component {
 					(user) => user.email == element
 				);
 				if (email[0] != null) {
-					var toke = this.state.tokens;
-					result.push(email[0].token);
-					var registrationToken = [
-						// "dsShuJSPgNA:APA91bEGx4JBvksAkvO0MlPcXj7sYLycgDJXAZyEcb2MpYKXjjrCKl0WavndrCUGLNM-Kj5ySUzG6cGvbhk6umyUQ0nEwT7n8Jltb3fmBRdm7Awkhc-ZdQ-8xAcpIuFua0fwA9GKFV7A",
-						email[0].token,
-					];
-					axios.post("http://localhost:9000/notify", {
-						tokens: registrationToken,
+					tokens.push(email[0].token);
+					var uid = email[0].id;
+					ref.child(uid).child("Alerts").push({
 						title: this.state.title,
 						body: this.state.body,
 					});
+					// axios.post("http://localhost:9000/notify", {
+					// 	tokens: registrationToken,
+					// 	title: this.state.title,
+					// 	body: this.state.body,
+					// });
 				}
 			});
+			fetch("https://fcm.googleapis.com/fcm/send", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization:
+						"key=AAAAyfsVL0g:APA91bFEP-_nKJHmhgb8fWNkif4Wggr3tX6W4etRjKno53WfofDfGJTtnIx1qPWjnhk1TJjg4rYGM45QUdIolqfUD-UOEvZz000477X33Y0lwncCA977e2juRCBS8kwtd43epioBiZdF",
+				},
+				body: JSON.stringify({
+					notification: {
+						body: this.state.body,
+						title: this.state.title,
+					},
+					data: { text: "data here" },
+					registration_ids: tokens,
+				}),
+			}).then(alert("Notification Sent"));
 		});
 	};
 
 	sendmsg = (event) => {
 		event.preventDefault();
 		this.getEmails();
-		alert("Notification sent");
 	};
 
 	render() {
