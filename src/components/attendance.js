@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import fire from "../config/firebase";
 import moment from "moment";
-
+import Search from "../components/search";
 class Attendance extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { emails: [] };
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleEmails = this.handleEmails.bind(this);
 	}
+
+	handleEmails = (emailsValue) => {
+		this.setState({
+			emails: emailsValue,
+		});
+	};
 
 	handleInputChange(event) {
 		this.setState({
@@ -18,7 +25,8 @@ class Attendance extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		var emails = this.state.emails.split(";");
+		// var emails = this.state.emails.split(";");
+		var emails = this.state.emails;
 		var ref = fire.database().ref("Users");
 		ref.once("value").then((snapshot) => {
 			emails.forEach((element) => {
@@ -39,10 +47,11 @@ class Attendance extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Add the student who is absent</h2>
+				<h2>Add the student who is absent today</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label>Add the student emails who are absent: </label>
-					<textarea name='emails' onChange={this.handleInputChange} />
+					{/* <textarea name='emails' onChange={this.handleInputChange} /> */}
+					<Search onSelectEmails={this.handleEmails} />
 					<button type='submit'>Choose as absent</button>
 				</form>
 			</div>

@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import fire from "../config/firebase";
 import axios from "axios";
+import Search from "../components/search";
 class Notify extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			emails: [],
+		};
 		this.sendmsg = this.sendmsg.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.getEmails = this.getEmails.bind(this);
+		this.handleEmails = this.handleEmails.bind(this);
 	}
+
+	handleEmails = (emailsValue) => {
+		this.setState({
+			emails: emailsValue,
+		});
+	};
 
 	handleInputChange(event) {
 		this.setState({
@@ -16,8 +26,10 @@ class Notify extends Component {
 		});
 	}
 	getEmails = () => {
-		var emails = this.state.emails.trim().split(";");
+		// var emails = this.state.emails.trim().split(";");
 		// console.log(emails);
+		var emails = this.state.emails;
+		console.log(emails);
 		var tokens = [];
 		var ref = fire.database().ref("Users");
 		ref.once("value").then((snapshot) => {
@@ -74,8 +86,9 @@ class Notify extends Component {
 					<label>Body of the Notification: </label>
 					<textarea name='body' onChange={this.handleInputChange} />
 					<br />
-					<label>List of student emails: </label>
-					<textarea name='emails' onChange={this.handleInputChange} />
+					{/* <label>List of student emails: </label>
+					<textarea name='emails' onChange={this.handleInputChange} /> */}
+					<Search onSelectEmails={this.handleEmails} />
 					<button type='submit'>Send</button>
 				</form>
 			</div>

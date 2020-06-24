@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import fire from "../config/firebase";
-
+import "../style/login.css";
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -27,7 +27,7 @@ class Login extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.login}>
+			<form class='login' onSubmit={this.login}>
 				<label> Email: </label>
 				<input type='text' name='email' onChange={this.handleInputChange} />
 				<input

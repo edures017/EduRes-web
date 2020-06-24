@@ -20,12 +20,14 @@ class NewStd extends Component {
 				var uid = result.user.uid;
 				this.setState({ id: uid });
 				this.uploadData();
+
+				secondaryApp.auth().signOut();
+				window.location.reload();
+				alert("Student has been added");
 			})
 			.catch(function (error) {
 				console.log("Error fetching user data:", error);
 			});
-		secondaryApp.auth().signOut();
-		alert("Student has been added");
 	};
 
 	uploadData = () => {
@@ -67,7 +69,7 @@ class NewStd extends Component {
 					<label>Phone Number: </label>
 					<input type='text' name='pno' onChange={this.handleChange} />
 					<br />
-					<label>Division</label>
+					<label>Division: </label>
 					<input type='text' name='division' onChange={this.handleChange} />
 					<br />
 					<button type='submit'>Submit</button>
