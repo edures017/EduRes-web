@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/EduRes-web/static/css/main.016f11ac.chunk.css",
+    "main.js": "/EduRes-web/static/js/main.c3515517.chunk.js",
+    "main.js.map": "/EduRes-web/static/js/main.c3515517.chunk.js.map",
+    "runtime-main.js": "/EduRes-web/static/js/runtime-main.843c2e6b.js",
+    "runtime-main.js.map": "/EduRes-web/static/js/runtime-main.843c2e6b.js.map",
+    "static/js/2.964526b4.chunk.js": "/EduRes-web/static/js/2.964526b4.chunk.js",
+    "static/js/2.964526b4.chunk.js.map": "/EduRes-web/static/js/2.964526b4.chunk.js.map",
+    "index.html": "/EduRes-web/index.html",
+    "precache-manifest.f6161ab90a7e3289cfd29721808cb2f9.js": "/EduRes-web/precache-manifest.f6161ab90a7e3289cfd29721808cb2f9.js",
+    "service-worker.js": "/EduRes-web/service-worker.js",
+    "static/css/main.016f11ac.chunk.css.map": "/EduRes-web/static/css/main.016f11ac.chunk.css.map",
+    "static/js/2.964526b4.chunk.js.LICENSE.txt": "/EduRes-web/static/js/2.964526b4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.843c2e6b.js",
+    "static/js/2.964526b4.chunk.js",
+    "static/css/main.016f11ac.chunk.css",
+    "static/js/main.c3515517.chunk.js"
+  ]
+}
