@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cd5f726c74c0140521b411e2e14dcf5a",
+    "revision": "baebe49313b2b883126bc2a03a873044",
     "url": "/EduRes-web/index.html"
   },
   {
-    "revision": "cb2303cd3a4608341c36",
+    "revision": "4e7f2d92658de3e473ef",
     "url": "/EduRes-web/static/css/main.5bf2691c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/EduRes-web/static/js/2.c6684be1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cb2303cd3a4608341c36",
-    "url": "/EduRes-web/static/js/main.12efe685.chunk.js"
+    "revision": "4e7f2d92658de3e473ef",
+    "url": "/EduRes-web/static/js/main.7d95a643.chunk.js"
   },
   {
     "revision": "0ed10c6da292aa075244",
