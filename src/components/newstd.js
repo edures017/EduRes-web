@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import fire from "../config/firebase";
 import secondaryApp from "../config/secondary";
+import MyDrawer from "../components/drawer";
+
+import MyAppBar from "./appbar";
 
 class NewStd extends Component {
 	constructor(props) {
@@ -53,6 +56,7 @@ class NewStd extends Component {
 	render() {
 		return (
 			<div>
+				<MyAppBar />
 				<form onSubmit={this.handleSubmit}>
 					<h2>Add a new Student</h2>
 					<label>Name: </label>

@@ -3,7 +3,8 @@ import fire from "../config/firebase";
 import NewStd from "../components/newstd";
 import Notify from "../components/notify";
 import Attendance from "../components/attendance";
-
+import MyDrawer from "../components/drawer";
+import MyAppBar from "../components/appbar";
 class Home extends Component {
 	constructor(props) {
 		super(props);
@@ -17,13 +18,15 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				Home<br></br>
+				{/* Home<br></br>
 				<button onClick={this.logout}>Log Out</button>
 				<br />
 				<br />
 				<NewStd />
 				<Notify />
-				<Attendance />
+				<Attendance /> */}
+				{/* <MyDrawer /> */}
+				<MyAppBar />
 			</div>
 		);
 	}

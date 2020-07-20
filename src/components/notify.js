@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import fire from "../config/firebase";
 import axios from "axios";
 import Search from "../components/search";
+import MyAppBar from "./appbar";
 class Notify extends Component {
 	constructor(props) {
 		super(props);
@@ -78,6 +79,7 @@ class Notify extends Component {
 	render() {
 		return (
 			<div>
+				<MyAppBar />
 				<h2>Notify the student</h2>
 				<form onSubmit={this.sendmsg}>
 					<label>Title of the Notification: </label>

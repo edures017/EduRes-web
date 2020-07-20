@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import fire from "../config/firebase";
 import moment from "moment";
 import Search from "../components/search";
+import MyAppBar from "./appbar";
 class Attendance extends Component {
 	constructor(props) {
 		super(props);
@@ -47,6 +48,7 @@ class Attendance extends Component {
 	render() {
 		return (
 			<div>
+				<MyAppBar />
 				<h2>Add the student who is absent today</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label>Add the student emails who are absent: </label>
