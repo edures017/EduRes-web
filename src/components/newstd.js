@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import fire from "../config/firebase";
 import secondaryApp from "../config/secondary";
+
 class NewStd extends Component {
 	constructor(props) {
 		super(props);
