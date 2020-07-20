@@ -13,7 +13,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
-
+import { HashLink as Link } from "react-router-hash-link";
 import NewStd from "./newstd";
 
 const useStyles = (theme) => ({
@@ -35,6 +35,12 @@ class MyDrawer extends Component {
 		this.state = {
 			left: false,
 		};
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick() {
+		console.log("CKICKLED	");
+		return <Link to='/newstd' />;
 	}
 	render() {
 		const { classes } = this.props;
@@ -62,8 +68,8 @@ class MyDrawer extends Component {
 				<List>
 					<ListItem
 						button
-						component='a'
-						href='/newstd'
+						component={Link}
+						to='/newstd'
 						key={"Add a new Student"}
 					>
 						<ListItemIcon>
@@ -72,7 +78,12 @@ class MyDrawer extends Component {
 						<ListItemText primary={"Add a new Student"} />
 					</ListItem>
 
-					<ListItem button component='a' href='/notify' key={"Notify Students"}>
+					<ListItem
+						button
+						component={Link}
+						to='/notify'
+						key={"Notify Students"}
+					>
 						<ListItemIcon>
 							<InboxIcon />
 						</ListItemIcon>
@@ -81,8 +92,8 @@ class MyDrawer extends Component {
 
 					<ListItem
 						button
-						component='a'
-						href='/attendance'
+						component={Link}
+						to='/attendance'
 						key={"Change Attendance"}
 					>
 						<ListItemIcon>

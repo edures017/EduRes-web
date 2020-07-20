@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link } from "react-router-dom";
 import NewStd from "./components/newstd";
 import Notify from "./components/notify";
 import Attendance from "./components/attendance";
@@ -15,18 +15,14 @@ import Landing from "./components/landing";
 // 	document.getElementById("root")
 // );
 
-console.log(process.env.PUBLIC_URL);
 ReactDOM.render(
 	// <App />,
-	<BrowserRouter basename={process.env.PUBLIC_URL}>
+	<HashRouter>
 		<Route exact path='/' component={App} />
-		<Route exact path={process.env.PUBLIC_URL + "/newstd"} component={NewStd} />
-		<Route exact path={process.env.PUBLIC_URL + "/notify"} component={Notify} />
-		<Route
-			path={process.env.PUBLIC_URL + "/attendance"}
-			component={Attendance}
-		/>
-	</BrowserRouter>,
+		<Route exact path='/newstd' component={NewStd} />
+		<Route exact path='/notify' component={Notify} />
+		<Route path='/attendance' component={Attendance} />
+	</HashRouter>,
 	document.getElementById("root")
 );
 
