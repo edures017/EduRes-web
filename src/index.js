@@ -18,11 +18,11 @@ import Landing from "./components/landing";
 console.log(process.env.PUBLIC_URL);
 ReactDOM.render(
 	// <App />,
-	<BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
+	<BrowserRouter>
 		<Route exact path='/' component={App} />
-		<Route exact path='/newstd' component={NewStd} />
-		<Route exact path='/notify' component={Notify} />
-		<Route path='/attendance' component={Attendance} />
+		<Route exact path={process.env.PUBLIC_URL + "/notify"} component={NewStd} />
+		<Route exact path={process.env.PUBLIC_URL + "/notify"} component={Notify} />
+		<Route path={process.env.PUBLIC_URL + "/notify"} component={Attendance} />
 	</BrowserRouter>,
 	document.getElementById("root")
 );
