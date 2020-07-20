@@ -104,7 +104,7 @@ class Login extends Component {
 					<Typography component='h1' variant='h5'>
 						Sign in
 					</Typography>
-					<form className={classes.form} noValidate onSubmit={this.login}>
+					<form className={classes.form} onSubmit={this.login}>
 						<TextField
 							variant='outlined'
 							margin='normal'
@@ -115,6 +115,7 @@ class Login extends Component {
 							name='email'
 							autoComplete='email'
 							autoFocus
+							type='email'
 							onChange={this.handleInputChange}
 						/>
 						<TextField
