@@ -16,12 +16,13 @@ import Landing from "./components/landing";
 // );
 
 ReactDOM.render(
-	<Router basename={process.env.PUBLIC_URL} history={browserHistory}>
-		<Route path='/' component={App} />
-		<Route exact path='/newstd' component={NewStd} />
-		<Route exact path='/notify' component={Notify} />
-		<Route path='/attendance' component={Attendance} />
-	</Router>,
+	<App />,
+	// <Router basename={process.env.PUBLIC_URL} history={browserHistory}>
+	// 	<Route path='/' component={App} />
+	// 	<Route exact path='/newstd' component={NewStd} />
+	// 	<Route exact path='/notify' component={Notify} />
+	// 	<Route path='/attendance' component={Attendance} />
+	// </Router>,
 	document.getElementById("root")
 );
 
