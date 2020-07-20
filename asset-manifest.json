@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/EduRes-web/static/css/main.5bf2691c.chunk.css",
-    "main.js": "/EduRes-web/static/js/main.9fb7e3f2.chunk.js",
-    "main.js.map": "/EduRes-web/static/js/main.9fb7e3f2.chunk.js.map",
+    "main.js": "/EduRes-web/static/js/main.a765732a.chunk.js",
+    "main.js.map": "/EduRes-web/static/js/main.a765732a.chunk.js.map",
     "runtime-main.js": "/EduRes-web/static/js/runtime-main.843c2e6b.js",
     "runtime-main.js.map": "/EduRes-web/static/js/runtime-main.843c2e6b.js.map",
     "static/js/2.c6684be1.chunk.js": "/EduRes-web/static/js/2.c6684be1.chunk.js",
     "static/js/2.c6684be1.chunk.js.map": "/EduRes-web/static/js/2.c6684be1.chunk.js.map",
     "index.html": "/EduRes-web/index.html",
-    "precache-manifest.e58a2153fd11c2c0771a5ffec6579c16.js": "/EduRes-web/precache-manifest.e58a2153fd11c2c0771a5ffec6579c16.js",
+    "precache-manifest.12a2874b52ac2c9d788b90a918d5aad8.js": "/EduRes-web/precache-manifest.12a2874b52ac2c9d788b90a918d5aad8.js",
     "service-worker.js": "/EduRes-web/service-worker.js",
     "static/css/main.5bf2691c.chunk.css.map": "/EduRes-web/static/css/main.5bf2691c.chunk.css.map",
     "static/js/2.c6684be1.chunk.js.LICENSE.txt": "/EduRes-web/static/js/2.c6684be1.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.843c2e6b.js",
     "static/js/2.c6684be1.chunk.js",
     "static/css/main.5bf2691c.chunk.css",
-    "static/js/main.9fb7e3f2.chunk.js"
+    "static/js/main.a765732a.chunk.js"
   ]
 }
