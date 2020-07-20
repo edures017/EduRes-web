@@ -89,7 +89,6 @@ class MyDrawer extends Component {
 						</ListItemIcon>
 						<ListItemText primary={"Notify Students"} />
 					</ListItem>
-
 					<ListItem
 						button
 						component={Link}
@@ -101,12 +100,12 @@ class MyDrawer extends Component {
 						</ListItemIcon>
 						<ListItemText primary={"Change Attendance"} />
 					</ListItem>
-					{/* <ListItem button key={"Logout"} onClick={this.logout}>
+					<ListItem button component={Link} to='/' key={"Home"}>
 						<ListItemIcon>
 							<InboxIcon />
 						</ListItemIcon>
-						<ListItemText primary={"Logout"} />
-					</ListItem> */}
+						<ListItemText primary={"Home"} />
+					</ListItem>
 				</List>
 			</div>
 		);
