@@ -16,7 +16,7 @@ import Landing from "./components/landing";
 // );
 
 ReactDOM.render(
-	<Router history={browserHistory}>
+	<Router basename={process.env.PUBLIC_URL} history={browserHistory}>
 		<Route path='/' component={App} />
 		<Route exact path='/newstd' component={NewStd} />
 		<Route exact path='/notify' component={Notify} />
