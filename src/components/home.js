@@ -8,13 +8,7 @@ import MyAppBar from "../components/appbar";
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.logout = this.logout.bind(this);
 	}
-
-	logout(e) {
-		fire.auth().signOut();
-	}
-
 	render() {
 		return (
 			<div>
