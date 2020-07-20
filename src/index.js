@@ -15,9 +15,10 @@ import Landing from "./components/landing";
 // 	document.getElementById("root")
 // );
 
+console.log(process.env.PUBLIC_URL);
 ReactDOM.render(
 	// <App />,
-	<BrowserRouter basename={process.env.PUBLIC_URL}>
+	<BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
 		<Route exact path='/' component={App} />
 		<Route exact path='/newstd' component={NewStd} />
 		<Route exact path='/notify' component={Notify} />
