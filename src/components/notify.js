@@ -3,6 +3,21 @@ import fire from "../config/firebase";
 import axios from "axios";
 import Search from "../components/search";
 import MyAppBar from "./appbar";
+
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+
+const useStyles = (theme) => ({
+	root: {
+		"& > *": {
+			margin: theme.spacing(30),
+			width: "25ch",
+			alignItems: "center",
+			justify: "center",
+		},
+	},
+});
+
 class Notify extends Component {
 	constructor(props) {
 		super(props);
@@ -39,7 +54,10 @@ class Notify extends Component {
 					(user) => user.email == element
 				);
 				if (email[0] != null) {
-					tokens.push(email[0].token);
+					console.log(email[0].token);
+					Object.values(email[0].token).forEach((element) => {
+						tokens.push(element);
+					});
 					var uid = email[0].id;
 					ref.child(uid).child("Alerts").push({
 						title: this.state.title,
@@ -76,6 +94,18 @@ class Notify extends Component {
 		this.getEmails();
 	};
 
+	// render() {
+	// 	const { classes } = this.props;
+	// 	return (
+	// 		<div>
+	// 			<form className={classes.root} noValidate autoComplete='off'>
+	// 				<TextField id='outlined-basic' label='Title' variant='outlined' />
+	// 				<TextField id='outlined-basic' label='Body' variant='outlined' />
+	// 			</form>
+	// 		</div>
+	// 	);
+	// }
+
 	render() {
 		return (
 			<div>
@@ -98,4 +128,4 @@ class Notify extends Component {
 	}
 }
 
-export default Notify;
+export default withStyles(useStyles, { withTheme: true })(Notify);
